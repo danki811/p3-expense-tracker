@@ -2,7 +2,7 @@
 A command-line application that allows users to track their expenses. This project is built using Python and provides a simple interface for users to add, view, and delete their expenses.
 
 # How to run
-python3 expense_tracker.py
+python expense_tracker.py
 
 # What have I learned?
 - To manipulate a csv file with `DictReader` and `DictWriter`
