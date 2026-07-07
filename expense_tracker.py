@@ -2,27 +2,30 @@ import csv
 import os
 import textwrap
 
+
 def main():
     while True:
-            answer = input(textwrap.dedent(f"""
+        answer = input(
+            textwrap.dedent("""
             Menu
             1. Add expense
             2. View expense
             3. Delete expenses
             4. Quit
-            """))
+            """)
+        )
 
-            if answer == "1":
-                add_expense()
-            elif answer == "2":
-                view_expense()
-            elif answer == "3":
-                delete_expenses()
-            elif answer == "4":
-                print("Goodbye!")
-                break
-            else:
-                print("Invalid option. Choose 1-4.")
+        if answer == "1":
+            add_expense()
+        elif answer == "2":
+            view_expense()
+        elif answer == "3":
+            delete_expenses()
+        elif answer == "4":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid option. Choose 1-4.")
 
 
 def add_expense():
@@ -44,7 +47,9 @@ def add_expense():
         if not file_exists:
             writer.writeheader()
 
-        writer.writerow({'Category': category, 'Amount': amount, 'Description': description})
+        writer.writerow(
+            {"Category": category, "Amount": amount, "Description": description}
+        )
 
 
 def view_expense():
@@ -59,7 +64,9 @@ def view_expense():
         print(f"{'CATEGORY':<12} {'AMOUNT':<8} {'DESCRIPTION'}")
         print("-" * 34)
         for row in reader:
-            print(f"{row['Category']:<12} ${float(row['Amount']):<7.2f} {row['Description']}")
+            print(
+                f"{row['Category']:<12} ${float(row['Amount']):<7.2f} {row['Description']}"
+            )
 
 
 def delete_expenses():
